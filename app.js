@@ -28,15 +28,6 @@ app.use(cookieParser());
 
 
 
-
-
-
-//DB SETUP
-mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false})
-.then(()=>{console.log('CONNECTED!!!!!!!!!!!!:)')});
-var db = mongoose.connection;
-//DB SETUP
-
 if(process.env.PORT){
   app.use(express.static(path.join(__dirname, "client/build")));
   app.get("*", (req, res) => {
