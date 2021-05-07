@@ -4,12 +4,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var authRoute = require('./routes/authRoute');
-var dataRoute = require('./routes/dataRoute');
-var mongoose = require('mongoose');
+
 var app = express();
-var mongoDB = process.env.DB;
+
   
 var cors = require('cors')
 
