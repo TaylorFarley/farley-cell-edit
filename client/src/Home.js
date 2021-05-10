@@ -7,9 +7,32 @@ import {
 } from '@material-ui/x-grid-data-generator';
 
 export default function Home() {
+  const [editRowsModel, setEditRowsModel] = React.useState({});
+  let [test, setTest] = React.useState(null)
+  const handleEditRowModelChange = React.useCallback((params) => {
+  
+    setEditRowsModel(params.model);
+  }, []);
+
+
+
+let xx = JSON.stringify(editRowsModel)
+console.log(xx)
+let yy = JSON.parse(xx)
+console.log(yy["1"])
+
+  
   return (
-    <div style={{ height: 300, width: '100%' }}>
-      <DataGrid rows={rows} columns={columns} />
+    <div style={{ width: '100%' }}>
+      <code>editRowsModel: {JSON.stringify(editRowsModel)}</code>
+      <div style={{ height: 400, width: '100%' }}>
+        <DataGrid
+          rows={rows}
+          columns={columns}
+          editRowsModel={editRowsModel}
+          onEditRowModelChange={handleEditRowModelChange}
+        />
+      </div>
     </div>
   );
 }
@@ -70,5 +93,3 @@ const rows = [
     lastLogin: randomUpdatedDate(),
   },
 ];
-
-console.log(rows)
