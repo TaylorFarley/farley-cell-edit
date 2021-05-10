@@ -8,18 +8,20 @@ import {
 
 export default function Home() {
   const [editRowsModel, setEditRowsModel] = React.useState({});
-  let [test, setTest] = React.useState(null)
+  let [test, setTest] = React.useState({})
   const handleEditRowModelChange = React.useCallback((params) => {
   
     setEditRowsModel(params.model);
   }, []);
-
-
-
-let xx = JSON.stringify(editRowsModel)
+let xx = []
+if(Object.keys(editRowsModel).length !== 0){
+  let aa = JSON.stringify(editRowsModel)
+  let bb = JSON.parse(aa)
+  xx.push(bb)
+}
 console.log(xx)
-let yy = JSON.parse(xx)
-console.log(yy["1"])
+
+
 
   
   return (
